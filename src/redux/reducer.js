@@ -20,25 +20,15 @@ const contactReducer = createReducer(loadContacts, {
       contact => contact.name.toLowerCase() === payload.name.toLowerCase(),
     );
     if (checkContact) {
-      alert(`this contact already exists`);
+      alert(`${payload.name} is already exists`);
+      console.log(state);
+      console.log(payload);
       return state;
     } else {
+      console.log(state);
+      console.log(payload);
       return [...state, payload];
     }
-
-    // const checkContact = name => {
-    //   return contacts.find(contact => {
-    //     return contact.name.toLocaleLowerCase() === name.toLocaleLowerCase();
-    //   });
-    // };
-
-    // const addContact = contact => {
-    //   if (!checkContact(contact.name)) {
-    //     setContacts([contact, ...contacts]);
-    //   } else {
-    //     alert(`${contact.name} is already in contacts`);
-    //   }
-    // };
   },
   [delContact]: (state, { payload }) => {
     console.log('del contact');
