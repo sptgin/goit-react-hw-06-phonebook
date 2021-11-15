@@ -20,20 +20,6 @@ export default function App() {
     setFilter(value);
   };
 
-  const checkContact = name => {
-    return contacts.find(contact => {
-      return contact.name.toLocaleLowerCase() === name.toLocaleLowerCase();
-    });
-  };
-
-  const addContact = contact => {
-    if (!checkContact(contact.name)) {
-      setContacts([contact, ...contacts]);
-    } else {
-      alert(`${contact.name} is already in contacts`);
-    }
-  };
-
   const findContact = () => {
     const normalizedFilter = filter.toLocaleLowerCase();
     if (filter.length) {
@@ -51,9 +37,9 @@ export default function App() {
 
   return (
     <div>
-      <h1 className="header__main">React HW 004 Phonebook</h1>
+      <h1 className="header__main">React HW 006 Phonebook</h1>
       <Section title="Phonebook">
-        <ContactForm onSubmit={addContact} />
+        <ContactForm />
       </Section>
       <Section title="Contacts">
         <Filter value={filter} onChange={getChange} />
