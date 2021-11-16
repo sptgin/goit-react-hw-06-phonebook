@@ -18,10 +18,7 @@ export default function ContactsList({ handleDelContact }) {
             className="contacts__list-item"
             key={contact.id}
             contact={contact}
-            handleDelContact={() => {
-              console.log(contact.id);
-              dispatch(delContact(contact.id));
-            }}
+            handleDelContact={() => dispatch(delContact(contact.id))}
           />
         );
       })}

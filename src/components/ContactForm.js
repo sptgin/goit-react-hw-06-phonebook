@@ -22,38 +22,6 @@ export default function ContactForm() {
 
   let nameId = uuid();
   let numberId = uuid();
-  // const [name, setName] = useState('');
-  // const [number, setNumber] = useState('');
-
-  // const formChange = event => {
-  //   const { name, value } = event.currentTarget;
-  //   switch (name) {
-  //     case 'name':
-  //       setName(value);
-  //       break;
-  //     case 'number':
-  //       setNumber(value);
-  //       break;
-  //     default:
-  //       return;
-  //   }
-  // };
-
-  // const formSubmit = event => {
-  //   event.preventDefault();
-  //   const contact = {
-  //     id: uuid(),
-  //     name: name,
-  //     number: number,
-  //   };
-  //   onSubmit(contact);
-  //   formReset();
-  // };
-
-  // const formReset = () => {
-  //   setName('');
-  //   setNumber('');
-  // };
 
   return (
     <form className="contacts__form" onSubmit={handleSubmit(onSubmit)}>
