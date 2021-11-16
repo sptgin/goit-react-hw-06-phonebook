@@ -1,22 +1,23 @@
 import PropTypes from 'prop-types';
 import './ContactListItem.css';
 
-const ContactListItem = ({ id, name, number, onDeleteContact }) => {
+export default function ContactListItem({ contact, handleDelContact }) {
   return (
     <li className="contact__list-item">
       <div>
-        {name}: {number}
+        {contact.name}: {contact.number}
       </div>
       <button
         className="contact__list-delete-button"
         type="submit"
-        onClick={() => onDeleteContact(id)}
+        id={contact.id}
+        onClick={handleDelContact}
       >
         Delete
       </button>
     </li>
   );
-};
+}
 
 ContactListItem.prototype = {
   id: PropTypes.number.isRequired,
@@ -24,5 +25,3 @@ ContactListItem.prototype = {
   number: PropTypes.number.isRequired,
   onDeleteContact: PropTypes.func.isRequired,
 };
-
-export default ContactListItem;

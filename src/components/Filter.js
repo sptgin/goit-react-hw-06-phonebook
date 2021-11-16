@@ -1,8 +1,12 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import './Filter.css';
+import { useSelector, useDispatch } from 'react-redux';
+import { setFilter } from '../redux/actions';
 
-export default function Filter({ value, onChange }) {
+export default function Filter() {
+  const value = useSelector(state => state.filter);
+  const dispatch = useDispatch();
+
   return (
     <div>
       <h3 className="filter__header">Find contacts by name :</h3>
@@ -10,14 +14,9 @@ export default function Filter({ value, onChange }) {
         type="text"
         name="filter"
         value={value}
-        onChange={onChange}
         className="filter__input"
+        onChange={event => dispatch(setFilter(event.target.value))}
       />
     </div>
   );
 }
-
-Filter.propTypes = {
-  value: PropTypes.string,
-  onChange: PropTypes.func.isRequired,
-};

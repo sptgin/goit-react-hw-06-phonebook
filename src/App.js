@@ -6,34 +6,34 @@ import ContactsList from './components/ContactsList';
 import './App.css';
 
 export default function App() {
-  const [contacts, setContacts] = useState(
-    JSON.parse(localStorage.getItem('contacts')) ?? [],
-  );
-  const [filter, setFilter] = useState('');
+  // const [contacts, setContacts] = useState(
+  //   JSON.parse(localStorage.getItem('contacts')) ?? [],
+  // );
+  // const [filter, setFilter] = useState('');
 
-  useEffect(() => {
-    localStorage.setItem('contacts', JSON.stringify(contacts));
-  }, [contacts]);
+  // useEffect(() => {
+  //   localStorage.setItem('contacts', JSON.stringify(contacts));
+  // }, [contacts]);
 
-  const getChange = event => {
-    const { value } = event.currentTarget;
-    setFilter(value);
-  };
+  // const getChange = event => {
+  //   const { value } = event.currentTarget;
+  //   setFilter(value);
+  // };
 
-  const findContact = () => {
-    const normalizedFilter = filter.toLocaleLowerCase();
-    if (filter.length) {
-      return contacts.filter(contact =>
-        contact.name.toLowerCase().includes(normalizedFilter),
-      );
-    } else {
-      return contacts;
-    }
-  };
+  // const findContact = () => {
+  //   const normalizedFilter = filter.toLocaleLowerCase();
+  //   if (filter.length) {
+  //     return contacts.filter(contact =>
+  //       contact.name.toLowerCase().includes(normalizedFilter),
+  //     );
+  //   } else {
+  //     return contacts;
+  //   }
+  // };
 
-  const deleteContact = contactId => {
-    setContacts(contacts.filter(contact => contact.id !== contactId));
-  };
+  // const deleteContact = contactId => {
+  //   setContacts(contacts.filter(contact => contact.id !== contactId));
+  // };
 
   return (
     <div>
@@ -42,11 +42,8 @@ export default function App() {
         <ContactForm />
       </Section>
       <Section title="Contacts">
-        <Filter value={filter} onChange={getChange} />
-        <ContactsList
-          findContact={findContact}
-          onDeleteContact={deleteContact}
-        />
+        <Filter />
+        <ContactsList />
       </Section>
     </div>
   );

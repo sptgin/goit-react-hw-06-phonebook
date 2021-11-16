@@ -30,15 +30,12 @@ const contactReducer = createReducer(loadContacts, {
       return [...state, payload];
     }
   },
-  [delContact]: (state, { payload }) => {
-    console.log('del contact');
-  },
+  [delContact]: (state, { payload }) =>
+    state.filter(contact => contact.id !== payload),
 });
 
 const filterReducer = createReducer('', {
-  [setFilter]: (state, { payload }) => {
-    console.log('set filter');
-  },
+  [setFilter]: (state, { payload }) => (state = payload),
 });
 
 const rootReducer = combineReducers({
