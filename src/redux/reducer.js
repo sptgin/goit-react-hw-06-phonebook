@@ -2,7 +2,9 @@ import { combineReducers } from 'redux';
 import { createReducer } from '@reduxjs/toolkit';
 import { addContact, delContact, setFilter } from './actions';
 
-const contactReducer = createReducer('', {
+const initContact = [];
+
+const contactReducer = createReducer(initContact, {
   [addContact]: (state, { payload }) => {
     const checkContact = state.some(
       contact => contact.name.toLowerCase() === payload.name.toLowerCase(),

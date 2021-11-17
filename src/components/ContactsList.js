@@ -9,6 +9,9 @@ export default function ContactsList({ handleDelContact }) {
       contact.name.toLocaleLowerCase().includes(state.filter.toLowerCase()),
     ),
   );
+
+  console.log(contacts);
+
   const dispatch = useDispatch();
   return (
     <ul className="contact__list">

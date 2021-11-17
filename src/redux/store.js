@@ -1,5 +1,4 @@
 import { configureStore, getDefaultMiddleware } from '@reduxjs/toolkit';
-
 import rootReducer from './reducer';
 import {
   persistStore,

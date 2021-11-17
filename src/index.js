@@ -8,11 +8,11 @@ import App from './App';
 
 ReactDOM.render(
   <React.StrictMode>
-    <PersistGate persistor={persistor} loading={null}>
-      <Provider store={store}>
+    <Provider store={store}>
+      <PersistGate persistor={persistor} loading={null}>
         <App />
-      </Provider>
-    </PersistGate>
+      </PersistGate>
+    </Provider>
   </React.StrictMode>,
   document.getElementById('root'),
 );
